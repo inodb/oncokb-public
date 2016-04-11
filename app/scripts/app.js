@@ -19,7 +19,8 @@ angular
     'ui.materialize',
     'ui.router',
     'datatables',
-    'datatables.bootstrap'
+    'datatables.bootstrap',
+    'ui.materialize'
   ])
   .constant('_', window._)
   .config(function ($routeProvider) {
@@ -54,6 +55,11 @@ angular
         templateUrl: 'views/genes.html',
         controller: 'GenesCtrl',
         controllerAs: 'genes'
+      })
+      .when('/cbioportal', {
+        templateUrl: 'views/cbioportal.html',
+        controller: 'CbioportalCtrl',
+        controllerAs: 'cbioportal'
       })
       .otherwise({
         redirectTo: '/'

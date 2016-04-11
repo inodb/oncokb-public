@@ -2,7 +2,6 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "font-awesome/scss/font-awesome.scss";
-@import "Materialize/sass/materialize.scss";
 // endbower
 
 @import "vars";
@@ -651,4 +650,65 @@ a:hover, a:focus {
   border: 2px solid black;
 
   white-space: nowrap;
+}
+
+.cbioportal-tooltip {
+  width: 500px;
+  padding: 10px 0;
+
+  .tabs li.tab {
+    background-color: $dark-blue;
+  }
+
+  .tabs .tab a {
+    color: white;
+    opacity: 0.8;
+  }
+
+  .tabs .tab a.active {
+    opacity: 1;
+  }
+
+  .tabs .tab a:hover {
+    color: white;
+  }
+
+  .tabs .indicator {
+    background-color: $orange;
+  }
+
+  .thead {
+    border: 0;
+  }
+
+  .collapsible-body p {
+    padding: 0 1rem;
+  }
+
+  .collapsible {
+    border-left: 0;
+    border-right: 0;
+    box-shadow: none;
+  }
+
+  td, th {
+    padding: 0;
+  }
+
+  .item {
+    //border-bottom: 2px solid $dark-blue;
+    margin: 10px;
+    padding: 10px;
+  }
+  .item-list {
+    margin: 0 10px;
+  }
+  table thead th{
+    border-bottom: 2px solid $dark-blue;
+  }
+
+  .levels {
+    padding: 0 10px;
+    font-size: 12px;
+  }
 }
