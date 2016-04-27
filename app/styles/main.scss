@@ -10,7 +10,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "font";
 
 $orange: $gsk-accent;
-
+$oncokb-orange: #ffa500;
 
 /* Tag Styles */
 @media only screen and (min-width: 993px) {
@@ -592,7 +592,7 @@ a:hover, a:focus {
 }
 
 .tabsContent {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .floatRight {
@@ -654,15 +654,22 @@ a:hover, a:focus {
 
 .cbioportal-tooltip {
   width: 500px;
-  padding: 10px 0;
 
+  .tabs {
+    height: 53px;
+  }
+  .tabs .tab {
+    line-height: 53px;
+    height: 53px;
+  }
   .tabs li.tab {
-    background-color: $dark-blue;
+    //height: 70px;
+    background-color: $darker-blue;
   }
 
   .tabs .tab a {
     color: white;
-    opacity: 0.8;
+    opacity: 0.6;
   }
 
   .tabs .tab a.active {
@@ -674,7 +681,8 @@ a:hover, a:focus {
   }
 
   .tabs .indicator {
-    background-color: $orange;
+    background-color: $oncokb-orange;
+    height: 3px;
   }
 
   .thead {
@@ -692,16 +700,21 @@ a:hover, a:focus {
   }
 
   td, th {
-    padding: 0;
+    padding: 3px 5px;
+    text-align: center;
+    font-size: 12px;
   }
 
   .item {
     //border-bottom: 2px solid $dark-blue;
-    margin: 10px;
-    padding: 10px;
+    //margin: 10px;
+    padding-top: 10px;
   }
   .item-list {
-    margin: 0 10px;
+    //margin: 0 10px;
+  }
+  table {
+    width: calc(100% - 20px);
   }
   table thead th{
     border-bottom: 2px solid $dark-blue;
@@ -710,5 +723,13 @@ a:hover, a:focus {
   .levels {
     padding: 0 10px;
     font-size: 12px;
+  }
+
+  .tip-header {
+    line-height: 50px;
+    font-size: 17px;
+    background-color: $dark-blue;
+    color: #fff;
+    padding-left: 15px;
   }
 }

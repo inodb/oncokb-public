@@ -1,80 +1,166 @@
 <div class="cbioportal-tooltip z-depth-2">
-  <div class="item">
-    <div class="col s12">
-      <ul class="tabs" tabs>
-        <li class="tab col s6"><a class="active" href="#oncogenic">Oncogenic</a></li>
-        <li class="tab col s6"><a href="#mutation-effect">Activating</a></li>
+  <div>
+    <div class="item" style="
+    padding-top: 0;
+">
+      <div class="col s12 tip-header">
+        BRAF V600E in colorectal cancer
+      </div>
+      <div class="col s12">
+        <ul class="tabs" tabs="" style="width: 100%;">
+          <li class="tab col s6">
+            <div class="" href="#oncogenic" style="
+    font-size: 8px;
+    line-height: 25px;
+">
+              <div style="
+    color: white;
+"><span style="
+    font-size: 14px;
+    width: 100%;
+    float: left;
+    line-height: 25px;
+">clinical implications</span><span style="
+    width: 100%;
+    float: left;
+    line-height: 25px;
+    color: orange;
+    font-size: 14px;
+">oncogenic</span></div>
+            </div>
+          </li>
+          <li class="tab col s6">
+            <div class="" href="#oncogenic" style="
+    font-size: 8px;
+    line-height: 25px;
+">
+              <div style="
+    color: white;
+    opacity: 0.4;
+"><span style="
+    font-size: 14px;
+    width: 100%;
+    float: left;
+    line-height: 25px;
+">Biological Effect</span><span style="
+    width: 100%;
+    float: left;
+    line-height: 25px;
+    color: orange;
+    font-size: 14px;
+">Inactivating</span></div>
+            </div>
+          </li>
+          <div class="indicator" style="right: 0px; left: 0px;"></div>
+        </ul>
+      </div>
+      <div id="oncogenic" class="col s12 tabsContent" style="display: block;margin: 10px 10px 0 10px;">
+        BRAF encodes an intracellular kinase and component of the pro-oncogenic MAP-kinase signaling pathway. Mutations of BRAF are found in various cancers, including melanoma and lung cancer. The BRAF V600E mutation is known to be oncogenic.
+      </div>
+      <div id="mutation-effect" class="col s12 tabsContent" style="display: none;margin: 10px 10px 0 10px;">
+        There is level 1 evidence that V600E or V600K mutations in BRAF is associated with response to FDA-approved
+        combination of RAF-inhibitor dabrafenib and trametinib in melanoma (PMID: 25287827, 25399551, 25265492), as well
+        as dabrafenib monotherapy in non-small cell lung cancer (Planchard, D et al. J Clin. Oncol. abstract 8009;
+        2013).
+      </div>
+    </div>
+
+    <div class="item">
+      <table style="
+    margin: 0 10px;
+    font-size: 13px;
+    text-align: center;
+" class="bordered">
+        <thead>
+        <tr>
+          <th>Level</th>
+          <th>Drug(s)</th>
+          <th>Level-associated cancer type(s)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><img src="resources/images/level-1.png" class="level-1"></td>
+          <td>Dabrafenib</td>
+          <td>Melanoma</td>
+        </tr>
+        <tr>
+          <td><img src="resources/images/level-1.png" class="level-1"></td>
+          <td>Trametinib</td>
+          <td>Melanoma</td>
+        </tr>
+        <tr>
+          <td><img src="resources/images/level-1.png" class="level-1"></td>
+          <td>Trametinib + Dabrafenib</td>
+          <td>Melanoma</td>
+        </tr>
+        <tr>
+          <td><img src="resources/images/level-1.png" class="level-1"></td>
+          <td>Vemurafenib</td>
+          <td>Melanoma</td>
+        </tr>
+        <tr>
+          <td><img src="resources/images/level-1.png" class="level-1"></td>
+          <td>Vemurafenib+Cobimetinib</td>
+          <td>Melanoma</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="item">
+      <p style="
+    padding: 0 10px;
+"><i style="
+    /* padding: 0 10px; */
+">The information above is intended for research purposes only and should not be used as a substitute for professional
+        diagnosis and treatment.</i></p>
+    </div>
+    <div class="item-list" style="
+    /* padding: 0 10px; */
+    padding-top: 10px;
+">
+      <ul class="collapsible" data-collapsible="accordion" style="margin: 0 10px;">
+        <li class="">
+          <div class="collapsible-header">Levels<span class="secondary-content"><i style="color: orange"
+                                                                                   class="glyphicon glyphicon-chevron-down"></i></span>
+          </div>
+          <div class="collapsible-body levels" style="display: none;">
+            <ul>
+              <li><b>Level 1:</b> FDA-approved biomarjer and drug in this indication.</li>
+              <li><b>Level 2A:</b> Standard-of-care biomarker and drug in this indication but not FDA-approved.</li>
+              <li><b>Level 2B:</b> FDA-approved biomarker and drug in another indication, but not FDA or NCCN
+                compendium-listed for this indication.
+              </li>
+              <li><b>Level 3A:</b> Clinical evidence links biomarker to drug response in this indication but neither
+                biomarker or drug are FDA-approved or NCCN compendium-listed.
+              </li>
+              <li><b>Level 3B:</b> Clinical evidence links biomarker to drug response in another indication but neither
+                biomarker or drug are FDA-approved or NCCN compendium-listed.
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="">
+          <div class="collapsible-header">Powered by OncoKB(Beta)<span class="secondary-content"><i
+            style="color: orange" class="glyphicon glyphicon-chevron-down"></i></span></div>
+          <div class="collapsible-body" style="display: none;"><p>OncoKB is under development. To report errors or
+            missing annotation about this variant, please send us feedback. For general feedback, please send an email
+            to oncokb@cbio.mskcc.org</p></div>
+        </li>
       </ul>
     </div>
-    <div id="oncogenic" class="col s12 tabsContent">
-      The BRAF V600E mutation is known to be oncogenic. While the selective RAF inhibitors dabrafenib and vemurafenib
-      are FDA approved for treatment of patients with melanoma harboring the BRAF V600E mutation; these agents are
-      essentially inactive as a single agent in BRAF-mutated colorectal cancer.
-    </div>
-    <div id="mutation-effect" class="col s12 tabsContent">
-      There is level 1 evidence that V600E or V600K mutations in BRAF is associated with response to FDA-approved
-      combination of RAF-inhibitor dabrafenib and trametinib in melanoma (PMID: 25287827, 25399551, 25265492), as well
-      as dabrafenib monotherapy in non-small cell lung cancer (Planchard, D et al. J Clin. Oncol. abstract 8009; 2013).
-    </div>
+    <div class="item" style="
+    /* display: inline-block; */
+     width: 100%;
+    padding-top: 0;
+    line-height: 40px;
+    height: 40px;
+">
+      <img src="resources/images/oncokb_logo.png" style="
+    height: 19px;
+    margin-left: 10px;
+    margin-top: -4px;
+">
+      <span class="pull-right" style="margin-right: 10px"><i class="font-size: 12px">Feedback</i></span></div>
   </div>
-  <div class="item">
-    <table>
-      <thead>
-      <tr>
-        <th>Level</th>
-        <th>Treatment</th>
-        <th>Tumor Type</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>R1</td>
-        <td>Cetuximab,Panitumumab</td>
-        <td>Colorectal Cancer</td>
-      </tr>
-      <tr>
-        <td>R1</td>
-        <td>Dabrafenibb</td>
-        <td>Colorectal Cancer</td>
-      </tr>
-      <tr>
-        <td>2B</td>
-        <td>Dabrafenib</td>
-        <td>Melanoma</td>
-      </tr>
-      <tr>
-        <td>2B</td>
-        <td>Vemurafenib</td>
-        <td>Melanoma</td>
-      </tr>
-      <tr>
-        <td>2B</td>
-        <td>Vemurafenib</td>
-        <td>Erdheim-Chester Disease</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="item-list">
-    <ul class="collapsible" data-collapsible="accordion">
-      <li>
-        <div class="collapsible-header">Levels<span class="secondary-content"><i class="glyphicon glyphicon-chevron-down"></i></span></div>
-        <div class="collapsible-body levels">
-          <ul>
-            <li><b>Level 1:</b> FDA-approved biomarjer and drug in this indication.</li>
-            <li><b>Level 2A:</b> Standard-of-care biomarker and drug in this indication but not FDA-approved.</li>
-            <li><b>Level 2B:</b> FDA-approved biomarker and drug in another indication, but not FDA or NCCN compendium-listed for this indication.</li>
-            <li><b>Level 3A:</b> Clinical evidence links biomarker to drug response in this indication but neither biomarker or drug are FDA-approved or NCCN compendium-listed.</li>
-            <li><b>Level 3B:</b> Clinical evidence links biomarker to drug response in another indication but neither biomarker or drug are FDA-approved or NCCN compendium-listed.</li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">Powered by OncoKB(Beta)<span class="secondary-content"><i class="glyphicon glyphicon-chevron-down"></i></span></div>
-        <div class="collapsible-body"><p>OncoKB is under development. To report errors or missing annotation about this variant, please send us feedback. For general feedback, please send an email to oncokb@cbio.mskcc.org</p></div>
-      </li>
-    </ul>
-  </div>
-  <div class="item">
-    <span class="pull-right"><i class="font-size: 12px">Feedback</i></span></div>
 </div>
