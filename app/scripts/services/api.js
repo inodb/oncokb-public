@@ -8,7 +8,7 @@
  * Factory in the oncokbStaticApp.
  */
 angular.module('oncokbStaticApp')
-    .factory('api', function($http, legacyLink, privateApiLink, apiLink, _) {
+    .factory('api', function($q, $http, legacyLink, privateApiLink, apiLink, _) {
         return {
             getNumbers: function(type, hugoSymbol) {
                 if (type === 'main') {
@@ -23,11 +23,32 @@ angular.module('oncokbStaticApp')
                 }
                 return null;
             },
+            blurSearch: function(query) {
+                var deferred = $q.defer();
+                $q.all({
+                    gene: this.searchGene(query),
+                    variant: this.searchVariant(query)
+                }).then(function(values) {
+                    values = _.mapObject(values, function(item, key) {
+                        return _.map(item.data, function(match) {
+                            match.hugoSymbol = match.hugoSymbol ? match.hugoSymbol : match.gene.hugoSymbol;
+                            match.queryType = key;
+                            match.link = '/gene/' + (match.hugoSymbol ? match.hugoSymbol : match.gene.hugoSymbol);
+                            return match;
+                        });
+                    });
+                    deferred.resolve(values);
+                });
+                return deferred.promise;
+            },
             searchGene: function(query, exactMatch) {
                 if (!_.isBoolean(exactMatch)) {
                     exactMatch = false;
                 }
                 return $http.get(apiLink + 'genes/lookup?query=' + query);
+            },
+            searchVariant: function(query) {
+                return $http.get(apiLink + 'variants/lookup?variant=' + query);
             },
             getGenes: function() {
                 return $http.get(apiLink + 'genes/');

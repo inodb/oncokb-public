@@ -8,7 +8,8 @@
  * Controller of the oncokbStaticApp
  */
 angular.module('oncokbStaticApp')
-    .controller('HomeCtrl', function($scope, $location, $rootScope, $window, api, _) {
+    .controller('HomeCtrl', function($scope, $location, $rootScope, $window,
+                                     $timeout, api, _) {
         $scope.content = {
             hoveredGene: 'gets',
             hoveredCount: '',
@@ -19,12 +20,12 @@ angular.module('oncokbStaticApp')
         };
 
         $scope.searchKeyUp = function(query) {
-            return api.searchGene(query, false)
-                .then(function(result) {
-                    if (result.status === 200) {
-                        var content = [];
+            return api.blurSearch(query)
+                .then(function(data) {
+                    if (_.isObject(data)) {
+                        var content = {};
                         query = query.toString().toLowerCase();
-                        content = result.data.sort(function(a, b) {
+                        content.gene = data.gene.sort(function(a, b) {
                             var _a = a.hugoSymbol.toString().toLowerCase();
                             var _b = b.hugoSymbol.toString().toLowerCase();
 
@@ -78,9 +79,9 @@ angular.module('oncokbStaticApp')
                                 return compare(_aIndexAlias[0], _bIndexAlias[0]);
                             }
                             return compare(_a, _b);
-                        });
-
-                        return content.slice(0, 5);
+                        }).slice(0, 5);
+                        content.variant = data.variant.slice(0, 5);
+                        return _.flatten(_.values(content));
                     }
                 }, function() {
 
@@ -88,8 +89,8 @@ angular.module('oncokbStaticApp')
         };
 
         $scope.searchConfirmed = function() {
-            if ($scope.content.selectedGene) {
-                $location.path('/gene/' + $scope.content.selectedGene);
+            if ($scope.content.selectedItem) {
+                $location.path($scope.content.selectedItem.link);
             }
         };
 

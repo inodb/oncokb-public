@@ -52,19 +52,28 @@
 <body ng-controller="MainCtrl as ctrl">
 <!--[if lte IE 9]>
 <p class="old-browser-warning">You are using an old version of Internet Explorer. For better performance, we recommend
-  using <b>Google Chrome, Firefox, Safari, or Internet Explorer 10 or above to visit this web site.</p>
+    using <b>Google Chrome, Firefox, Safari, or Internet Explorer 10 or above to visit this web site.</p>
 <![endif]-->
 
 <script type="text/ng-template" id="mainSearchTemplate.html">
     <div class="main-search-template">
-        <div><span ng-bind-html="match.model.hugoSymbol | uibTypeaheadHighlight:query"></span> <span
-            ng-if="match.model.entrezGeneId > 0">(Entrez Gene: <span
-            ng-bind-html="match.model.entrezGeneId | uibTypeaheadHighlight:query"></span>)</span></div>
-        <div ng-if="match.model.geneAliases && match.model.geneAliases.length > 0" class="alias">
-            <span>Also known as </span>
-            <span ng-repeat="alias in match.model.geneAliases"><span
-                ng-bind-html="alias | uibTypeaheadHighlight:query"></span><span ng-if="!$last">,</span>
+        <div ng-switch="match.model.queryType">
+            <div ng-switch-when="gene">
+                <div><span ng-bind-html="match.model.hugoSymbol | uibTypeaheadHighlight:query"></span> <span
+                    ng-if="match.model.entrezGeneId > 0">(Entrez Gene: <span
+                    ng-bind-html="match.model.entrezGeneId | uibTypeaheadHighlight:query"></span>)</span></div>
+                <div ng-if="match.model.geneAliases && match.model.geneAliases.length > 0" class="alias">
+                    <span>Also known as </span>
+                    <span ng-repeat="alias in match.model.geneAliases"><span
+                        ng-bind-html="alias | uibTypeaheadHighlight:query"></span><span ng-if="!$last">,</span>
               </span>
+                </div>
+            </div>
+            <div ng-switch-when="variant">
+                <div><span>Gene: {{match.model.gene.hugoSymbol}}</span> Variant:
+                    <span ng-bind-html="match.model.name | uibTypeaheadHighlight:query"></span>
+                </div>
+            </div>
         </div>
     </div>
 </script>
