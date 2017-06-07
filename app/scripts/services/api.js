@@ -24,22 +24,7 @@ angular.module('oncokbStaticApp')
                 return null;
             },
             blurSearch: function(query) {
-                var deferred = $q.defer();
-                $q.all({
-                    gene: this.searchGene(query),
-                    variant: this.searchVariant(query)
-                }).then(function(values) {
-                    values = _.mapObject(values, function(item, key) {
-                        return _.map(item.data, function(match) {
-                            match.hugoSymbol = match.hugoSymbol ? match.hugoSymbol : match.gene.hugoSymbol;
-                            match.queryType = key;
-                            match.link = '/gene/' + (match.hugoSymbol ? match.hugoSymbol : match.gene.hugoSymbol);
-                            return match;
-                        });
-                    });
-                    deferred.resolve(values);
-                });
-                return deferred.promise;
+                return $http.get(privateApiLink + 'search/typeahead?limit=100&query=' + query);
             },
             searchGene: function(query, exactMatch) {
                 if (!_.isBoolean(exactMatch)) {

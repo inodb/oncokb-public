@@ -59,19 +59,26 @@
     <div class="main-search-template">
         <div ng-switch="match.model.queryType">
             <div ng-switch-when="gene">
-                <div><span ng-bind-html="match.model.hugoSymbol | uibTypeaheadHighlight:query"></span> <span
-                    ng-if="match.model.entrezGeneId > 0">(Entrez Gene: <span
-                    ng-bind-html="match.model.entrezGeneId | uibTypeaheadHighlight:query"></span>)</span></div>
-                <div ng-if="match.model.geneAliases && match.model.geneAliases.length > 0" class="alias">
+                <div><span ng-bind-html="match.model.gene.hugoSymbol | uibTypeaheadHighlight:query"></span> <span
+                    ng-if="match.model.gene.entrezGeneId > 0">(Entrez Gene: <span
+                    ng-bind-html="match.model.gene.entrezGeneId | uibTypeaheadHighlight:query"></span>)</span></div>
+                <div ng-if="match.model.gene.geneAliases && match.model.gene.geneAliases.length > 0" class="alias">
                     <span>Also known as </span>
-                    <span ng-repeat="alias in match.model.geneAliases"><span
+                    <span ng-repeat="alias in match.model.gene.geneAliases"><span
                         ng-bind-html="alias | uibTypeaheadHighlight:query"></span><span ng-if="!$last">,</span>
               </span>
                 </div>
             </div>
             <div ng-switch-when="variant">
-                <div><span>Gene: {{match.model.gene.hugoSymbol}}</span> Variant:
-                    <span ng-bind-html="match.model.name | uibTypeaheadHighlight:query"></span>
+                <div><span>{{match.model.gene.hugoSymbol}}</span> /
+                    <span
+                        ng-bind-html="(match.model.variant.name ? match.model.variant.name : match.model.variant.alteration) | uibTypeaheadHighlight:query"></span>
+                    <span style="float: right" ng-if="!match.model.variantExist">Not annotated by OncoKB</span></div>
+                <div>
+                    <span ng-if="match.model.oncogenicity"> {{match.model.oncogenicity}} </span>
+                    <span
+                        ng-if="match.model.highestLevelOfSensitivity">Highest sensitive level: {{match.model.highestLevelOfSensitivity}} </span>
+                    <span ng-if="match.model.highestLevelOfResistance">Highest resistant level: {{match.model.highestLevelOfResistance}} </span>
                 </div>
             </div>
         </div>

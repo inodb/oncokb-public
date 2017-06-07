@@ -129,7 +129,8 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
             text-align: left;
-
+            max-height: 230px;
+            overflow-y: scroll;
             li.active {
                 color: white;
                 background-color: $dark-blue;
