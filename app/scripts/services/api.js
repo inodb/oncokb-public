@@ -26,6 +26,10 @@ angular.module('oncokbStaticApp')
             blurSearch: function(query) {
                 return $http.get(privateApiLink + 'search/typeahead?limit=100&query=' + query);
             },
+            generalSearch: function(hugoSymbol, variant) {
+                return $http.get(apiLink + 'search?hugoSymbol=' +
+                    hugoSymbol + '&variant=' + variant);
+            },
             searchGene: function(query, exactMatch) {
                 if (!_.isBoolean(exactMatch)) {
                     exactMatch = false;

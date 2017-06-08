@@ -510,7 +510,7 @@ angular.module('oncokbStaticApp')
                 } else {
                     console.log('no such gene existed ');
                     if (/[a-z]/.test($routeParams.geneName)) {
-                        $location.path('/gene/' +
+                        $location.path('/genes/' +
                             $routeParams.geneName.toUpperCase());
                     } else {
                         $location.path('/genes');

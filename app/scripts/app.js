@@ -47,7 +47,7 @@ angular
                 templateUrl: 'views/team.html',
                 controller: 'MainCtrl'
             })
-            .when('/gene/:geneName', {
+            .when('/genes/:geneName', {
                 templateUrl: 'views/gene.html',
                 controller: 'GeneCtrl',
                 controllerAs: 'gene'
@@ -81,6 +81,16 @@ angular
                 templateUrl: 'views/dataaccess.html',
                 controller: 'DataaccessCtrl',
                 controllerAs: 'dataAccess'
+            })
+            .when('/variants', {
+                templateUrl: 'views/variant.html',
+                controller: 'VariantCtrl',
+                controllerAs: 'variant'
+            })
+            .when('/genes/:geneName/variants/:variant', {
+                templateUrl: 'views/variant.html',
+                controller: 'VariantCtrl',
+                controllerAs: 'variant'
             })
             .otherwise({
                 redirectTo: '/'

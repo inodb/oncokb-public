@@ -1,0 +1,46 @@
+<div class="variant container">
+    <div class="row top">
+        <div ng-class="{true:'col-lg-6 col-md-6', false:'col-lg-12 col-md-12'}[altFreFlag == true]">
+            <h3>
+                <span class="gene-title">{{data.gene.hugoSymbol}}</span> <span>{{data.variant}}</span>
+            </h3>
+            <p>{{data.searchResult.geneSummary}}
+                {{data.searchResult.variantSummary}}{{data.searchResult.tumorTypeSummary}}</p>
+            <div class="treatments"
+                 ng-if="data.searchResult.treatments.length > 0">
+                <table class="row-border hover"
+                       datatable="ng" dt-options="meta.tableOptions"
+                       dt-instance="meta.table">
+                    <thead>
+                    <tr>
+                        <th>Treatment</th>
+                        <th>Level</th>
+                        <th>Citations</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="treatment in data.searchResult.treatments">
+                        <td>
+                            <span ng-repeat="drug in treatment.drugs">
+                                        {{drug.drugName}}<span ng-if="$index < treatment.drugs.length - 1"> + </span>
+                                    </span>
+                        </td>
+                        <td>{{treatment.level}}</td>
+                        <td>
+                                <span class="referenceStyle"
+                                      qtip qtip-type="geneEvidence"
+                                      abstracts="treatment.abstracts"
+                                      pmids="treatment.pmids">
+                                {{getNumOfRefsTreatment(treatment)}} </span>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+</div>
