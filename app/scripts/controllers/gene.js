@@ -105,8 +105,8 @@ angular.module('oncokbStaticApp')
                 .then(function(totalCounts) {
                     api.getPortalAlterationSampleCount($scope.gene.hugoSymbol)
                         .then(function(countsByGene) {
-                            $scope.altFreFlag = countsByGene.data.length > 0;
-                            if ($scope.altFreFlag) {
+                            $scope.meta.altFreFlag = countsByGene.data.length > 0;
+                            if ($scope.meta.altFreFlag) {
                                 var studies = [];
                                 var results = [];
                                 var shortNames = [];
@@ -389,6 +389,9 @@ angular.module('oncokbStaticApp')
         $scope.meta = {};
         $scope.meta.clinicalTable = {};
         $scope.meta.biologicalTable = {};
+        $scope.meta.showGeneAddition = true;
+        $scope.meta.altFreFlag = true;
+
         $scope.status = {
             hasSummary: false,
             hasBackground: false,
@@ -397,7 +400,6 @@ angular.module('oncokbStaticApp')
             getClinicalEvidence: false,
             getBiologicalEvidence: false,
         };
-        $scope.altFreFlag = true;
         $scope.mutationMapperFlag = true;
         $scope.view = {};
         $scope.view.levelColors = $rootScope.data.levelColors;
@@ -496,6 +498,10 @@ angular.module('oncokbStaticApp')
                 var content = result.data;
                 if (content) {
                     $scope.gene = content.gene;
+                    if ($scope.gene.hugoSymbol.toLowerCase() === 'other biomarkers') {
+                        $scope.meta.showGeneAddition = false;
+                        $scope.meta.altFreFlag = false;
+                    }
                     $route.updateParams({geneName: $scope.gene.hugoSymbol});
                     var subNavItems = [{content: $scope.gene.hugoSymbol}];
 
