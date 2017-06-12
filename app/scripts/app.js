@@ -82,16 +82,16 @@ angular
                 controller: 'DataaccessCtrl',
                 controllerAs: 'dataAccess'
             })
-            .when('/variants', {
-                templateUrl: 'views/variant.html',
-                controller: 'VariantCtrl',
-                controllerAs: 'variant'
-            })
-            .when('/genes/:geneName/variants/:variant', {
-                templateUrl: 'views/variant.html',
-                controller: 'VariantCtrl',
-                controllerAs: 'variant'
-            })
+            // .when('/variants', {
+            //     templateUrl: 'views/variant.html',
+            //     controller: 'VariantCtrl',
+            //     controllerAs: 'variant'
+            // })
+            // .when('/genes/:geneName/variants/:variant', {
+            //     templateUrl: 'views/variant.html',
+            //     controller: 'VariantCtrl',
+            //     controllerAs: 'variant'
+            // })
             .otherwise({
                 redirectTo: '/'
             });
