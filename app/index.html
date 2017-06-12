@@ -74,11 +74,8 @@
                     <span
                         ng-bind-html="(match.model.variant.name ? match.model.variant.name : match.model.variant.alteration) | uibTypeaheadHighlight:query"></span>
                     <span style="float: right" ng-if="!match.model.variantExist">Not annotated by OncoKB</span></div>
-                <div>
-                    <span ng-if="match.model.oncogenicity"> {{match.model.oncogenicity}} </span>
-                    <span
-                        ng-if="match.model.highestLevelOfSensitivity">Highest sensitive level: {{match.model.highestLevelOfSensitivity}} </span>
-                    <span ng-if="match.model.highestLevelOfResistance">Highest resistant level: {{match.model.highestLevelOfResistance}} </span>
+                <div class="annotation">
+                    <span ng-if="match.model.annotation">{{match.model.annotation}}</span>
                 </div>
             </div>
         </div>

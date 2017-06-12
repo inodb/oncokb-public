@@ -197,12 +197,22 @@ a:hover, a:focus {
 .main-search-template {
     margin: 3px 5px;
     padding: 3px 5px;
-    .alias {
+    .alias, .annotation {
         font-size: 13px;
-        color: grey;
-        font-style: italic;
-        font-weight: 200;
         line-height: 15px;
+        color: grey;
+        font-weight: 300;
+    }
+    .alias {
+        font-style: italic;
+    }
+}
+
+.active {
+    .main-search-template {
+        .alias, .annotation {
+            color: white;
+        }
     }
 }
 
