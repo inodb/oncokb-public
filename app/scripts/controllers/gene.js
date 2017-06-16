@@ -391,11 +391,11 @@ angular.module('oncokbStaticApp')
         $scope.meta.biologicalTable = {};
         $scope.meta.showGeneAddition = true;
         $scope.meta.altFreFlag = true;
+        $scope.meta.highestLevels = [];
 
         $scope.status = {
             hasSummary: false,
             hasBackground: false,
-            hasLevel: false,
             moreInfo: false,
             getClinicalEvidence: false,
             getBiologicalEvidence: false,
@@ -505,11 +505,12 @@ angular.module('oncokbStaticApp')
                     $route.updateParams({geneName: $scope.gene.hugoSymbol});
                     var subNavItems = [{content: $scope.gene.hugoSymbol}];
 
-                    if (content.highestLevel) {
-                        $scope.meta.highestLevel = content.highestLevel.replace('LEVEL_', '');
-                        $scope.status.hasLevel = true;
+                    if (content.highestSensitiveLevel) {
+                        $scope.meta.highestLevels.push(content.highestSensitiveLevel.replace('LEVEL_', ''));
                     }
-
+                    if (content.highestResistanceLevel) {
+                        $scope.meta.highestLevels.push(content.highestResistanceLevel.replace('LEVEL_', ''));
+                    }
                     $rootScope.view.subNavItems = subNavItems;
 
                     fetchHistogramData();
@@ -679,12 +680,7 @@ angular.module('oncokbStaticApp')
             return item;
         };
 
-        $scope.setColor = function(level) {
-            if ($scope.view.levelColors.hasOwnProperty(level)) {
-                return {color: $scope.view.levelColors[level]};
-            }
-            return {color: $scope.view.levelColors.other};
-        };
+        $scope.getLevelColor = utils.getLevelColor;
 
         $scope.tableClicked = function(type) {
             // Bootstrap fade in has 150ms transition time. DataTable only can gets width after the transition.
