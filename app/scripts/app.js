@@ -82,16 +82,6 @@ angular
                 controller: 'DataaccessCtrl',
                 controllerAs: 'dataAccess'
             })
-            // .when('/variants', {
-            //     templateUrl: 'views/variant.html',
-            //     controller: 'VariantCtrl',
-            //     controllerAs: 'variant'
-            // })
-            // .when('/genes/:geneName/variants/:variant', {
-            //     templateUrl: 'views/variant.html',
-            //     controller: 'VariantCtrl',
-            //     controllerAs: 'variant'
-            // })
             .otherwise({
                 redirectTo: '/'
             });
@@ -148,9 +138,9 @@ angular.module('oncokbStaticApp').run(
                 '3A': '#984EA3',
                 '3B': '#BE98CE',
                 '4': '#424242',
-                // 'R1': '#EE3424',
-                // 'R2': '#F79A92',
-                // 'R3': '#FCD6D3',
+                'R1': '#EE3424',
+                'R2': '#F79A92',
+                'R3': '#FCD6D3',
                 'Other': 'grey'
             },
             citationURL: 'When using OncoKB, please cite: ' +
