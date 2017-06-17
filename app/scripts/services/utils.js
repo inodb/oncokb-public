@@ -52,8 +52,10 @@ angular.module('oncokbStaticApp')
                     'NA') : 'NA';
             },
             getLevelColor: function(level) {
-                if ($rootScope.data.levelColors.hasOwnProperty(level)) {
-                    return {color: $rootScope.data.levelColors[level]};
+                if (level) {
+                    if ($rootScope.data.levelColors.hasOwnProperty(level)) {
+                        return {color: $rootScope.data.levelColors[level]};
+                    }
                 }
                 return {color: $rootScope.data.levelColors.Other};
             }

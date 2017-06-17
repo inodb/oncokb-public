@@ -62,7 +62,11 @@
                    uib-typeahead="item for item in searchKeyUp($viewValue)"
                    typeahead-template-url="mainSearchTemplate.html"
                    typeahead-wait-ms="200"
+                   typeahead-loading="content.loadingSearchResult"
             >
+            <div class="loading" ng-if="content.loadingSearchResult">
+                <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
+            </div>
         </div>
         <div class="col-lg-2 col-md-2"></div>
       </div>

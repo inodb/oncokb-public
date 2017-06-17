@@ -56,7 +56,7 @@
 <![endif]-->
 
 <script type="text/ng-template" id="mainSearchTemplate.html">
-    <div class="main-search-template">
+    <div class="main-search-template" ng-controller="MainCtrl">
         <div ng-switch="match.model.queryType">
             <div ng-switch-when="gene">
                 <div><span ng-bind-html="match.model.gene.hugoSymbol | uibTypeaheadHighlight:query"></span> <span
@@ -76,6 +76,13 @@
                     <span style="float: right" ng-if="!match.model.variantExist">Not annotated by OncoKB</span></div>
                 <div class="annotation">
                     <span ng-if="match.model.annotation">{{match.model.annotation}}</span>
+                    <span class="annotation" ng-if="match.model.highestSensitiveLevel || match.model.highestResistanceLevel">
+                        Highest level of evidence:
+                            <span ng-if="match.model.highestSensitiveLevel" ng-style="getLevelColor(match.model.highestSensitiveLevel)">
+                                Level {{match.model.highestSensitiveLevel}}</span>
+                            <span ng-if="match.model.highestResistanceLevel" ng-style="getLevelColor(match.model.highestResistanceLevel)">
+                                Level {{match.model.highestResistanceLevel}}</span>
+                    </span>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@
  * Controller of the oncokbStaticApp
  */
 angular.module('oncokbStaticApp')
-    .controller('MainCtrl', function($scope, $rootScope, $location) {
+    .controller('MainCtrl', function($scope, $rootScope, $location, utils) {
         $scope.isActive = function(viewLocation) {
             return viewLocation === $location.path();
         };
@@ -315,6 +315,8 @@ angular.module('oncokbStaticApp')
                 }]
             }
         };
+
+        $scope.getLevelColor = utils.getLevelColor;
 
         NProgress.done();
     });

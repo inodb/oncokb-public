@@ -16,17 +16,26 @@ angular.module('oncokbStaticApp')
             main: $rootScope.meta.numbers.main,
             levels: $rootScope.meta.numbers.levels,
             matchedGenes: [],
-            selectedGene: ''
+            selectedGene: '',
+            loadingSearchResult: false
         };
 
         $scope.searchKeyUp = function(query) {
             return api.blurSearch(query)
                 .then(function(resp) {
+                    var result = resp;
                     if (_.isObject(resp)) {
-                        return resp.data;
-                    } else if (_.isArray(resp)) {
-                        return resp;
+                        result = resp.data;
                     }
+                    _.each(result, function(item) {
+                        if (item.highestSensitiveLevel) {
+                            item.highestSensitiveLevel = item.highestSensitiveLevel.replace('LEVEL_', '');
+                        }
+                        if (item.highestResistanceLevel) {
+                            item.highestResistanceLevel = item.highestResistanceLevel.replace('LEVEL_', '');
+                        }
+                    });
+                    return result;
                 }, function() {
 
                 });
